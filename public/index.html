@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GTC87M4MNN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GTC87M4MNN');
+  </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How many miles or cashback can I earn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./faqs.html">FAQs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Contact</a>
+              </li>
+              <li class="nav-item register-interest">
+                <a class="nav-link btn btn-primary" href="./register">Register your interest</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <h1 class="display-1 yellow-backdrop">Miles vs Cashback</h1>
+    <h2 class="display-5 yellow-backdrop">How much can you earn in a year via credit cards?</h2>
+    <br>
+    <p class="lead yellow-backdrop">
+        Unlock the full potential of your spending with this beta calculator. Simply input your <b>monthly average spending</b> in the below categories, excluding institutional payments, bank fee payments, topup to quasi-cash accounts and <a href="https://www.valuechampion.sg/common-credit-card-transactions-excluded-earning-rewards">other exceptions listed here.</a>
+    <br><br>
+      This beta calculator assumes that you're willing to manage multiple cards if needed.
+    <br><br>
+    It's a beta version, which may just be the beginning to something more! Imagine an elevated experience with further spend categories, providing even more refined recommendations! The journey would evolve based on interest levels. <a href="./register">Register your interest</a> and stay in the loop.
+    </p>
+    <br>
+
+    <div class="container yellow-backdrop" id="monthlyAverageSpend">
+        <div class="row">
+            <!-- Column 1 -->
+            <div class="col-md-4">
+                <P class="col-header">Online</P>
+                <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="onlineSpend" placeholder="All online spend" pattern="[0-9]" inputmode="numeric" max="10000">
+                <label for="floatingInput">All online spend</label>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="col-md-4">
+                <p class="col-header">Mobile contactless</p>
+                <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="mobileContactlessSpend" placeholder="All mobile contactless spend" pattern="[0-9]" inputmode="numeric" max="10000">
+                <label for="floatingInput">All mobile contactless spend</label>
+                </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="col-md-4">
+                <p class="col-header">Offline</p>
+                    <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="offlineShopping" placeholder="Shopping" pattern="[0-9]" inputmode="numeric" max="10000">
+                    <label for="floatingInput">Shopping</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="offlineDining" placeholder="Dining" pattern="[0-9]" inputmode="numeric" max="10000">
+                    <label for="floatingInput">Dining</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="offlineGroceries" placeholder="Groceries" pattern="[0-9]" inputmode="numeric" max="10000">
+                    <label for="floatingInput">Groceries</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="offlineTravel" placeholder="Travel" pattern="[0-9]" inputmode="numeric" max="10000">
+                    <label for="floatingInput">Travel</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="offlineGeneralSpend" placeholder="Other general spend" pattern="[0-9]" inputmode="numeric" max="10000">
+                    <label for="floatingInput">Other general spend</label>
+                    </div>
+            </div>
+    </div>
+    <br>
+    <br>
+    <div class="d-flex justify-content-center mt-4">
+        <button type="button" class="btn btn-primary btn-lg" id="btn-calculate" onclick="calculateMilesCashback()">Calculate</button>
+    </div>   
+    <br>
+    <a href="./register" class="floating-button">Register your interest for an <br>enhanced calculator!</a>
+<div class="results-container">
+    <div class="result col-md-6" id = "resultMiles">
+                <p class="display-6">Annual potential KrisFlyer miles: <br><b><span id="resultMilesValue"></span> miles</b></p>
+                <p>Below is a list of miles credit card(s) for your consideration: </p> <br>
+                <table class="table table-striped table-bordered table-hover table-cards equalHeight">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Card</th>
+                        <th scope="col">Earn rate</th>
+                        <th scope="col">Min spend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>DBS Women's World</td>
+                        <td>4MPD on all online spend, capped at $2,000 per month.</td>
+                        <td>Min spend block of $5</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">2</th>
+                        <td>Citibank Rewards</td>
+                        <td>4MPD on all online spend, except travel category, capped at $1,000 per month.</td>
+                        <td>Min spend block of $1</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">3</th>
+                        <td>UOB Preferred Platinum</td>
+                        <td>4MPD on all mobile contactless spend, and online shopping and entertainment, capped at $1,110 per month.</td>
+                        <td>Min spend block of $5</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>HSBC Revolution</td>
+                            <td>4MPD on all online and mobile contactless spend for a) travel, b) shopping, c) groceries, d) dining, and e) transport.</td>
+                            <td>Min spend block of $1</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>UOB Lady's</td>
+                            <td>6MPD (promo rate ends in Feb 2024; regular earn rate is 4MPD) on 1 category of your choice, capped at $1,000 per month.</td>
+                            <td>Min spend block of $5</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>UOB Lady's Solitaire</td>
+                            <td>6MPD (promo rate ends in Feb 2024; regular earn rate is 4MPD) on 2 categories of your choice, capped at $3,000 per month.</td>
+                            <td>Min spend block of $5</td>
+                        </tr>
+                    </tbody>
+                    </table>
+            <br>
+            <div class="accordion" id="accordionMiles">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    How is this calculated?
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionMiles">
+                  <div class="accordion-body">
+                      This is calculated using a 4MPD earn rate for all categories, except other general spend. Other general spend is calculated using a lower generic earn rate of 1.2MPD.<br><br>Please note that this calculation is optimised for those with monthly average spend less than $3-4k and with each category spend $1k or less, as there is a cap to accelerated earn rates. <br><br>
+                      Rates chosen are reflective of the creator's personal opinion on what the most efficient miles credit card strategy is based on the available parameters collected in this calculator. It's neither objective nor definitive.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Tips & tricks
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionMiles">
+                  <div class="accordion-body">
+                    <strong>Converting offline spend to online spend.</strong> <br>
+                    Use Amaze + Citibank Rewards to convert your offline spend to online spend. Simply tap your Amaze card when making purchases at physical retail store, and these transactions can be recharged to your Citibank Rewards card online, thus allowing you to earn 4MPD too. <br>
+                    <strong>Keep an eye out for miles expiry and be mindful of the possibility of miles devaluation.</strong> <br>
+                    Most banks' points expire within 1-5 years, with KrisFlyer miles expiring in 2 years. A conservative estimate would be 3 years for you to earn sufficient miles to redeem for your trip. However, such a long earn horizon may be unwise as routes may be canned, miles devalued and sometimes, when you finally have enough miles to book, there are no available redemption seats! Hence, the recommendation would be to cap at 2.5 years for your earn horizon. <br>
+                    <strong>Popular routes get snapped up within days.</strong> <br>
+                    Singapore Airlines releases their redemption inventory opens 355 days before day of travel. For popular routes that you've fixed dates for, try to camp in advance. This is especially so if you plan to redeem for more than one seat. <br>
+                    <strong>Consolidate your miles card with 1 bank (as much as possible).</strong> <br>
+                    As credit card reward points can only be transferred to KrisFlyer programme in blocks of 10,000 minimally with a conversion fee of ~$25, you may end up with orphan miles that expire prior to conversion if you spread yourself too thin, and pay the banks more fees! Do note that different banks have different reward points pooling rules. Some (e.g. UOB) allows you to pool your miles for conversion, while others (e.g. Citibank) don't. Refer to the Milelion article <a href="https://milelion.com/2023/08/12/which-banks-pool-credit-card-points/" target = "_blank">here</a> for more details.<br>
+                    <strong>Accelerate your cashback earn as a New-to-bank (NTB) customer.</strong> <br>
+                    NTB customers are typically defined as individuals who have not owned or cancelled a credit card with that particular bank in the last 12 months. <br>
+                    Many credit cards run NTB acquisition promos, which offer prizes such as bonus lump sum cashback, iPad, Dyson hairdryers and more. Check out <a href="https://www.singsaver.com.sg/credit-card/best-deals?providers=citibank&utm_source=google&utm_medium=cpc&utm_campaign=B:General:CB:D:E&gad_source=1&gclid=EAIaIQobChMI07Dy_pTZggMV1hmDAx0S0wNDEAAYASAAEgL48fD_BwE" target = "_blank">Singsaver</a> or <a href = "https://www.moneysmart.sg/credit-cards/promo" target = "_blank">MoneySmart</a> for the latest promos. <br>
+                    <strong>Checking what category your spend falls under.</strong> <br>
+                    If you're using a credit card that rewards accelerated earn rates based on categories, you may wish to check what category (aka MCC) your transaction falls under. Milelion has written a good guide <a href="https://milelion.com/2023/11/13/how-to-check-merchant-category-codes-mccs-before-making-a-purchase/" target = "_blank">here</a>. 
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Singapore Airlines KrisFlyer Redemption Rates
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionMiles">
+                  <div class="accordion-body">
+                    <p>Here are some places you can fly to with varying amount of miles. Only <b>one-way business class saver rates</b> to popular destinations are displayed below. For the complete list of rates and destinations, please refer to <a href="https://www.singaporeair.com/saar5/pdf/ppsclub_krisflyer/charts/SQ_AwdChart.pdf">Singapore Airlines redemption chart</a>.</p>
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">No. of miles</th>
+                            <th scope="col">Destination</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">52,000</th>
+                            <td>Japan and South Korea</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">103,500</th>
+                            <td>Europe</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">107,000</th>
+                            <td>USA (West Coast) and Canada</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">111,500</th>
+                            <td>USA (East Coast and Houston)</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    </div>
+    <div class="result col-md-6" id="resultCashbackBelow500">
+        <p class="display-6">Annual potential cashback: <br><b>$<span id="resultCashbackBelow500Value"></span></b></p>
+            <p>Below is a list of cashback credit card(s) for your consideration: </p><br>
+                    <table class="table table-striped table-bordered table-hover table-cards equalHeight">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Card</th>
+                            <th scope="col">Cashback rate</th>
+                            <th scope="col">Min spend</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Citi Cash Back+</td>
+                            <td>1.6%</td>
+                            <td>NIL</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Standard Chartered Simply Cash</td>
+                            <td>1.5%</td>
+                            <td>NIL</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>UOB Absolute Cashback</td>
+                            <td>1.7%. Do note that it's an AMEX card, and so may not be as widely accepted as Visa or Mastercard.</td>
+                            <td>NIL</td>
+                        </tr>
+                        </tbody>
+                    </table>
+              <br>
+              <div class="accordion" id="accordionBelow500">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingBelow500Three">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBelow500Three" aria-expanded="true" aria-controls="collapseBelow500Three">
+                      How is this calculated?
+                    </button>
+                  </h2>
+                  <div id="collapseBelow500Three" class="accordion-collapse collapse" aria-labelledby="headingBelow500Three" data-bs-parent="#accordionBelow500">
+                    <div class="accordion-body">
+                        This is calculated using a 1.6% cashback rate, which is one of the highest cashback rates for Singapore MC/Visa credit cards where no minimum monthly spend is required. For accelerated cashback rates, most Singapore credit cards require at least a minimum monthly spend of $500 to trigger. <br><br>
+                        Rates chosen are reflective of the creator's personal opinion on what the most efficient cashback credit card strategy is based on the available parameters collected in this calculator. It's neither objective nor definitive.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingBelow500Four">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBelow500Four" aria-expanded="false" aria-controls="collapseBelow500Four">
+                      Tips & tricks
+                    </button>
+                  </h2>
+                  <div id="collapseBelow500Four" class="accordion-collapse collapse" aria-labelledby="headingBelow500Four" data-bs-parent="#accordionBelow500">
+                    <div class="accordion-body">
+                      <strong>The less you spend, the more you save.</strong> <br>
+                      While you may not spend enough to trigger accelerate earn rates on credit cards, this is reflective of your prudence that will contribute positively to your finances. <br>
+                      <strong>Accelerate your cashback earn as a New-to-bank (NTB) customer.</strong> <br>
+                      NTB customers are typically defined as individuals who have not owned or cancelled a credit card with that particular bank in the last 12 months. <br>
+                      Many credit cards run NTB acquisition promos, which offer prizes such as bonus lump sum cashback, iPad, Dyson hairdryers and more. Check out <a href="https://www.singsaver.com.sg/credit-card/best-deals?providers=citibank&utm_source=google&utm_medium=cpc&utm_campaign=B:General:CB:D:E&gad_source=1&gclid=EAIaIQobChMI07Dy_pTZggMV1hmDAx0S0wNDEAAYASAAEgL48fD_BwE" target = "_blank">Singsaver</a> or <a href = "https://www.moneysmart.sg/credit-cards/promo" target = "_blank">MoneySmart</a> for the latest promos. 
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+    <div class="result col-md-6" id="resultCashbackAbove600">
+        <p class="display-6">Annual potential cashback: <br><b>$<span id="resultCashbackAbove600Value"></span></b><br></p>
+            <p>Below is a list of cashback credit card(s) for your consideration: </p><br>
+            <table class="table table-striped table-bordered table-hover table-cards equalHeight">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Card</th>
+                    <th scope="col">Cashback rate</th>
+                    <th scope="col">Min spend</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>UOB Evol</td>
+                    <td>8%, capped at max $20 cashback for the online and mobile contactless categories each</td>
+                    <td>$600</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>DBS Live Fresh</td>
+                    <td>5%, capped at max $20 cashback for the online and mobile contactless categories each</td>
+                    <td>$600</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Maybank Family & Friends</td>
+                    <td>8% across 5 selected categories, capped at $25 for each category</td>
+                    <td>$800</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Citi Cash Back+</td>
+                    <td>1.6%</td>
+                    <td>NIL</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <div class="accordion" id="accordionAbove600">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading600One">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse600One" aria-expanded="true" aria-controls="collapse600One">
+                      How is this calculated?
+                    </button>
+                  </h2>
+                  <div id="collapse600One" class="accordion-collapse collapse " aria-labelledby="heading600One" data-bs-parent="#accordionAbove600">
+                    <div class="accordion-body">
+                        This is calculated assuming that UOB Evol is the optimal card for this scenario, with excess spend going into general cashback credit cards. It uses an accelerated cashback rate of 8% for the online and mobile contactless spend categories, capped at $20 maximum per category. Excess of the $600 required to trigger UOB Evol accelerated cashback rate is calculated at a generic cashback rate of 1.6%. <br> <br>
+                        Rates chosen are reflective of the creator's personal opinion on what the most efficient cashback credit card strategy is based on the available parameters collected in this calculator. It's neither objective nor definitive.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading600Two">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse600Two" aria-expanded="false" aria-controls="collapse600Two">
+                      Tips & tricks
+                    </button>
+                  </h2>
+                  <div id="collapse600Two" class="accordion-collapse collapse" aria-labelledby="heading600Two" data-bs-parent="#accordionAbove600">
+                    <div class="accordion-body">
+                      <strong>How to meet the min spend requirement when you're just a bit short this month?</strong> <br>
+                      Purchase vouchers, such as supermarket or departmental store vouchers. This is one of the easiest way to bump up your spending in a month, without spending unnecessarily. <br>
+                      <strong>Accelerate your cashback earn as a New-to-bank (NTB) customer.</strong> <br>
+                      NTB customers are typically defined as individuals who have not owned or cancelled a credit card with that particular bank in the last 12 months. <br>
+                      Many credit cards run NTB acquisition promos, which offer prizes such as bonus lump sum cashback, iPad, Dyson hairdryers and more. Check out <a href="https://www.singsaver.com.sg/credit-card/best-deals?providers=citibank&utm_source=google&utm_medium=cpc&utm_campaign=B:General:CB:D:E&gad_source=1&gclid=EAIaIQobChMI07Dy_pTZggMV1hmDAx0S0wNDEAAYASAAEgL48fD_BwE" target = "_blank">Singsaver</a> or <a href = "https://www.moneysmart.sg/credit-cards/promo" target = "_blank">MoneySmart</a> for the latest promos. <br>
+                      <strong>Checking what category your spend falls under.</strong> <br>
+                      If you're using a credit card that rewards accelerated earn rates based on categories, you may wish to check what category (aka MCC) your transaction falls under. Milelion has written a good guide <a href="https://milelion.com/2023/11/13/how-to-check-merchant-category-codes-mccs-before-making-a-purchase/" target = "_blank">here</a>. 
+                    </div>
+                  </div>
+                </div>
+            </div>
+     </div>
+     <div class="result col-md-6" id="resultCashback1200to2000">
+        <p class="display-6">Annual potential cashback: <br><b>$<span id="resultCashback1200to2000Value"></span></b></p>
+        <p>Below is a list of cashback credit card(s) for your consideration:</p><br>
+        <table class="table table-striped table-bordered table-hover equalHeight">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Card</th>
+                <th scope="col">Cashback rate</th>
+                <th scope="col">Min spend</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>UOB Evol</td>
+                <td>8%, capped at max $20 cashback for the online and mobile contactless categories each</td>
+                <td>$600</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>DBS Live Fresh</td>
+                <td>5%, capped at max $20 cashback for the online and mobile contactless categories each</td>
+                <td>$600</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Maybank Family & Friends</td>
+                <td>8% across 5 selected categories, capped at $25 for each category</td>
+                <td>$800</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Citi Cash Back+</td>
+                <td>1.6%</td>
+                <td>NIL</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <div class="accordion" id="accordion1200">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading1200One">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1200One" aria-expanded="true" aria-controls="collapse1200One">
+                  How is this calculated?
+                </button>
+              </h2>
+              <div id="collapse1200One" class="accordion-collapse collapse" aria-labelledby="heading1200One" data-bs-parent="#accordion1200">
+                <div class="accordion-body">
+                    This is calculated assuming that UOB Evol and DBS Live Fresh are the optimal cards for this scenario, with excess spend going into general cashback credit cards. It uses an accelerated cashback rate of 5/8%for the online and mobile contactless spend categories, capped at $20 maximum per category. Excess of the $600 required to trigger UOB Evol and DBS Live Fresh accelerated cashback is calculated at a generic cashback rate of 1.6%. <br> <br>
+                    Rates chosen are reflective of the creator's personal opinion on what the most efficient cashback credit card strategy is based on the available parameters collected in this calculator. It's neither objective nor definitive.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading1200Two">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1200Two" aria-expanded="false" aria-controls="collapse1200Two">
+                  Tips & tricks
+                </button>
+              </h2>
+              <div id="collapse1200Two" class="accordion-collapse collapse" aria-labelledby="heading1200Two" data-bs-parent="#accordion1200">
+                <div class="accordion-body">
+                  <strong>How to meet the min spend requirement when you're just a bit short this month?</strong> <br>
+                  Purchase vouchers, such as supermarket or departmental store vouchers. This is one of the easiest way to bump up your spending in a month, without spending unnecessarily. <br>
+                  <strong>Accelerate your cashback earn as a New-to-bank (NTB) customer.</strong> <br>
+                  NTB customers are typically defined as individuals who have not owned or cancelled a credit card with that particular bank in the last 12 months. <br>
+                  Many credit cards run NTB acquisition promos, which offer prizes such as bonus lump sum cashback, iPad, Dyson hairdryers and more. Check out <a href="https://www.singsaver.com.sg/credit-card/best-deals?providers=citibank&utm_source=google&utm_medium=cpc&utm_campaign=B:General:CB:D:E&gad_source=1&gclid=EAIaIQobChMI07Dy_pTZggMV1hmDAx0S0wNDEAAYASAAEgL48fD_BwE" target = "_blank">Singsaver</a> or <a href = "https://www.moneysmart.sg/credit-cards/promo" target = "_blank">MoneySmart</a> for the latest promos. <br>
+                  <strong>Checking what category your spend falls under.</strong> <br>
+                  If you're using a credit card that rewards accelerated earn rates based on categories, you may wish to check what category (aka MCC) your transaction falls under. Milelion has written a good guide <a href="https://milelion.com/2023/11/13/how-to-check-merchant-category-codes-mccs-before-making-a-purchase/" target = "_blank">here</a>. 
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="result col-md-6" id="resultCashback500to999">
+        <p class="display-6">Annual potential cashback: <br><b>$<span id="resultCashback500to999Value"></span></b></p>
+        <p>Below is a list of cashback credit card(s) for your consideration: </p><br>
+        <table class="table table-striped table-bordered table-hover table-cards equalHeight">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Card</th>
+                <th scope="col">Cashback rate</th>
+                <th scope="col">Min spend</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>UOB ONE</td>
+                <td>$50 per quarter, with accelerated cashback rates for particular merchants</td>
+                <td>$500 per month, for the entire quarter</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Maybank Family & Friends</td>
+                <td>8% across 5 selected categories, capped at $25 for each category</td>
+                <td>$800</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Citi Cash Back+</td>
+                <td>1.6%</td>
+                <td>NIL</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>UOB Absolute Cashback</td>
+                <td>1.7%. Do note that it's an AMEX card, and so may not be as widely accepted as Visa or Mastercard.</td>
+                <td>NIL</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <div class="accordion" id="accordion500Example">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading500One">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse500One" aria-expanded="true" aria-controls="collapse500One">
+                  How is this calculated?
+                </button>
+              </h2>
+              <div id="collapse500One" class="accordion-collapse collapse" aria-labelledby="heading500One" data-bs-parent="#accordion500Example">
+                <div class="accordion-body">
+                    This is calculated assuming that UOB ONE is the optimal card for this scenario, with excess spend going into general cashback credit cards. $50 cashback is credited per quarter from UOB ONE. Excess of the $500 required to trigger UOB ONE accelerated cashback rate is calculated at a generic cashback rate of 1.6%. <br> <br>
+                    Rates chosen are reflective of the creator's personal opinion on what the most efficient cashback credit card strategy is based on the available parameters collected in this calculator. It's neither objective nor definitive. For example, certain merchants earn accelerated cashback with UOB ONE, but these attributes are not captured as inputs, and hence cannot be factored in the calculations. 
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading500Two">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse500Two" aria-expanded="false" aria-controls="collapse500Two">
+                  Tips & tricks
+                </button>
+              </h2>
+              <div id="collapse500Two" class="accordion-collapse collapse" aria-labelledby="heading500Two" data-bs-parent="#accordion500Example">
+                <div class="accordion-body">
+                  <strong>Certain credit cards, such as UOB ONE, earn accelerated cashback rates for particular merchants.</strong> <br>
+                  Maximise these mechanics to maximise your cashback. Check out <a href="https://www.uob.com.sg/personal/cards/cashback/one-card-cashback-calculator.page">UOB ONE cashback calculator</a>. <br>
+                  <strong>Accelerate your cashback earn as a New-to-bank (NTB) customer.</strong> <br>
+                  NTB customers are typically defined as individuals who have not owned or cancelled a credit card with that particular bank in the last 12 months. <br>
+                  Many credit cards run NTB acquisition promos, which offer prizes such as bonus lump sum cashback, iPad, Dyson hairdryers and more. Check out <a href="https://www.singsaver.com.sg/credit-card/best-deals?providers=citibank&utm_source=google&utm_medium=cpc&utm_campaign=B:General:CB:D:E&gad_source=1&gclid=EAIaIQobChMI07Dy_pTZggMV1hmDAx0S0wNDEAAYASAAEgL48fD_BwE" target = "_blank">Singsaver</a> or <a href = "https://www.moneysmart.sg/credit-cards/promo" target = "_blank">MoneySmart</a> for the latest promos. <br>
+                  <strong>Checking what category your spend falls under.</strong> <br>
+                  If you're using a credit card that rewards accelerated earn rates based on categories, you may wish to check what category (aka MCC) your transaction falls under. Milelion has written a good guide <a href="https://milelion.com/2023/11/13/how-to-check-merchant-category-codes-mccs-before-making-a-purchase/" target = "_blank">here</a>. <br>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="result col-md-6" id="resultCashback1000to1999">
+        <p class="display-6">Annual potential cashback: <br><b>$<span id="resultCashback1000to1999Value"></span></b></p>
+        <p>Below is a list of cashback credit card(s) for your consideration: </p><br>
+        <table class="table table-striped table-bordered table-hover table-cards equalHeight">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Card</th>
+                <th scope="col">Cashback rate</th>
+                <th scope="col">Min spend</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>UOB ONE</td>
+                <td>$100 per quarter, with accelerated cashback rates for particular merchants</td>
+                <td>$1000 per month, for the entire quarter</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Maybank Family & Friends</td>
+                <td>8% across 5 selected categories, capped at $25 for each category</td>
+                <td>$800</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Citi Cash Back+</td>
+                <td>1.6%</td>
+                <td>NIL</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>UOB Absolute Cashback</td>
+                <td>1.7%. Do note that it's an AMEX card, and so may not be as widely accepted as Visa or Mastercard.</td>
+                <td>NIL</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <div class="accordion" id="accordion1000Example">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading1000One">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1000One" aria-expanded="true" aria-controls="collapse1000One">
+                  How is this calculated?
+                </button>
+              </h2>
+              <div id="collapse1000One" class="accordion-collapse collapse" aria-labelledby="heading1000One" data-bs-parent="#accordion1000Example">
+                <div class="accordion-body">
+                    This is calculated assuming that UOB ONE is the optimal card for this scenario, with excess spend going into general cashback credit cards. $100 cashback is credited per quarter from UOB ONE. Excess of the $1000 required to trigger UOB ONE accelerated cashback rate is calculated at a generic cashback rate of 1.6%. <br> <br>
+                    Rates chosen are reflective of the creator's personal opinion on what the most efficient cashback credit card strategy is based on the available parameters collected in this calculator. It's neither objective nor definitive. For example, certain merchants earn accelerated cashback with UOB ONE, but these attributes are not captured as inputs, and hence cannot be factored in the calculations. 
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading1000Two">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1000Two" aria-expanded="false" aria-controls="collapse1000Two">
+                  Tips & tricks
+                </button>
+              </h2>
+              <div id="collapse1000Two" class="accordion-collapse collapse" aria-labelledby="heading1000Two" data-bs-parent="#accordion1000Example">
+                <div class="accordion-body">
+                  <strong>Certain credit cards, such as UOB ONE, earn accelerated cashback rates for particular merchants.</strong> <br>
+                  Maximise these mechanics to maximise your cashback. Check out <a href="https://www.uob.com.sg/personal/cards/cashback/one-card-cashback-calculator.page">UOB ONE cashback calculator</a>. <br>
+                  <strong>Accelerate your cashback earn as a New-to-bank (NTB) customer.</strong> <br>
+                  NTB customers are typically defined as individuals who have not owned or cancelled a credit card with that particular bank in the last 12 months. <br>
+                  Many credit cards run NTB acquisition promos, which offer prizes such as bonus lump sum cashback, iPad, Dyson hairdryers and more. Check out <a href="https://www.singsaver.com.sg/credit-card/best-deals?providers=citibank&utm_source=google&utm_medium=cpc&utm_campaign=B:General:CB:D:E&gad_source=1&gclid=EAIaIQobChMI07Dy_pTZggMV1hmDAx0S0wNDEAAYASAAEgL48fD_BwE" target = "_blank">Singsaver</a> or <a href = "https://www.moneysmart.sg/credit-cards/promo" target = "_blank">MoneySmart</a> for the latest promos. <br>
+                  <strong>Checking what category your spend falls under.</strong> <br>
+                  If you're using a credit card that rewards accelerated earn rates based on categories, you may wish to check what category (aka MCC) your transaction falls under. Milelion has written a good guide <a href="https://milelion.com/2023/11/13/how-to-check-merchant-category-codes-mccs-before-making-a-purchase/" target = "_blank">here</a>. <br>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="result col-md-6" id="resultCashbackabove2000">
+        <p class="display-6">Annual potential cashback: <br><b>$<span id="resultCashbackabove2000Value"></span></b></p>
+        <p>Below is a list of cashback credit card(s) for your consideration: </p><br>
+        <table class="table table-striped table-bordered table-hover table-cards equalHeight">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Card</th>
+                <th scope="col">Cashback rate</th>
+                <th scope="col">Min spend</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>UOB ONE</td>
+                <td>$100 per quarter, with accelerated cashback rates for particular merchants</td>
+                <td>$1000 per month, for the entire quarter</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Maybank Family & Friends</td>
+                <td>8% across 5 selected categories, capped at $25 for each category</td>
+                <td>$800</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Citi Cash Back+</td>
+                <td>1.6%</td>
+                <td>NIL</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>UOB Absolute Cashback</td>
+                <td>1.7%. Do note that it's an AMEX card, and so may not be as widely accepted as Visa or Mastercard.</td>
+                <td>NIL</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <div class="accordion" id="accordion2000Example">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading2000One">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2000One" aria-expanded="true" aria-controls="collapse2000One">
+                  How is this calculated?
+                </button>
+              </h2>
+              <div id="collapse2000One" class="accordion-collapse collapse" aria-labelledby="heading2000One" data-bs-parent="#accordion2000Example">
+                <div class="accordion-body">
+                    This is calculated assuming that UOB ONE is the optimal card for this scenario, with excess spend going into general cashback credit cards. $200 cashback is credited per quarter from UOB ONE. Excess of the $2000 required to trigger UOB ONE accelerated cashback rate is calculated at a generic cashback rate of 1.6%. <br> <br>
+                    Rates chosen are reflective of the creator's personal opinion on what the most efficient cashback credit card strategy is based on the available parameters collected in this calculator. It's neither objective nor definitive. For example, certain merchants earn accelerated cashback with UOB ONE, but these attributes are not captured as inputs, and hence cannot be factored in the calculations. 
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading2000Two">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2000Two" aria-expanded="false" aria-controls="collapse2000Two">
+                  Tips & tricks
+                </button>
+              </h2>
+              <div id="collapse2000Two" class="accordion-collapse collapse" aria-labelledby="heading2000Two" data-bs-parent="#accordion2000Example">
+                <div class="accordion-body">
+                  <strong>Certain credit cards, such as UOB ONE, earn accelerated cashback rates for particular merchants.</strong> <br>
+                  Maximise these mechanics to maximise your cashback. Check out <a href="https://www.uob.com.sg/personal/cards/cashback/one-card-cashback-calculator.page">UOB ONE cashback calculator</a>. <br>
+                  <strong>Accelerate your cashback earn as a New-to-bank (NTB) customer.</strong> <br>
+                  NTB customers are typically defined as individuals who have not owned or cancelled a credit card with that particular bank in the last 12 months. <br>
+                  Many credit cards run NTB acquisition promos, which offer prizes such as bonus lump sum cashback, iPad, Dyson hairdryers and more. Check out <a href="https://www.singsaver.com.sg/credit-card/best-deals?providers=citibank&utm_source=google&utm_medium=cpc&utm_campaign=B:General:CB:D:E&gad_source=1&gclid=EAIaIQobChMI07Dy_pTZggMV1hmDAx0S0wNDEAAYASAAEgL48fD_BwE" target = "_blank">Singsaver</a> or <a href = "https://www.moneysmart.sg/credit-cards/promo" target = "_blank">MoneySmart</a> for the latest promos. <br>
+                  <strong>Checking what category your spend falls under.</strong> <br>
+                  If you're using a credit card that rewards accelerated earn rates based on categories, you may wish to check what category (aka MCC) your transaction falls under. Milelion has written a good guide <a href="https://milelion.com/2023/11/13/how-to-check-merchant-category-codes-mccs-before-making-a-purchase/" target = "_blank">here</a>. <br>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="./index.js"></script>
+</body>
+</html>

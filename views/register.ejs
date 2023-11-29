@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GTC87M4MNN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GTC87M4MNN');
+  </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How many miles or cashback can I earn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./faqs.html">FAQs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">Contact</a>
+              </li>
+              <li class="nav-item register-interest">
+                <a class="nav-link active btn btn-primary" aria-current="page" href="#">Register your interest</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+	<br>
+	<h1 class="display-1 yellow-backdrop"> Register your interest </h1> <br>
+	<P class="lead yellow-backdrop" style="text-align: center;"><strong><%= count %></strong> have registered their interest! <br><br>Be part of the "in" group who would be first to know about improvements to this calculator, such as enhanced credit card recommendations based on your unique spending pattern, increased spend breakdown categories for more refined calculations and more.</P>
+	<div class="container" >
+	<div class="row justify-content-center">
+	<div class="col-md-3">				
+	</div>
+				
+		<div class="col-md-6 main yellow-backdrop">		
+			<form action="/sign_up" method="post">				 
+			
+							
+			<input class="box form-control" type="text" name="name" id="name"
+			placeholder="Name" required /><br>
+							
+			<input class="box form-control" type="email" name="email" id="email"
+			placeholder="E-Mail " required /><br><br>
+			<input type="submit" class="btn btn-primary" id="submitDetails"
+			name="submitDetails" value="Submit" /><br>
+					
+			</form>
+					
+		</div>
+				
+				
+		<div class="col-md-3">
+		</div>
+				
+	</div>
+	</div>
+</body>
+</html>
